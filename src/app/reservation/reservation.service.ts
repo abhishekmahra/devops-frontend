@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 
 export class ReservationService{
 
-  private apiUrl = "http://localhost:3000/reservation"
+  private apiUrl = "http://52.64.17.240:3000/reservation"
     constructor(private http: HttpClient){}
 
     getReservations():Observable<Reservation[]>{
