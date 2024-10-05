@@ -1,0 +1,29 @@
+<!-- 
+use tempelate reffral is if reservation present than only you can see the unordered list else the template referral will be shown  -->
+
+<app-home></app-home>
+
+<div class="container">
+    <h2>Reservation List</h2>
+
+    <div class="uldivs">
+        <ul *ngIf="reservations.length;  else noReservation">
+            <li *ngFor="let reservation of reservations">
+                Guest: {{reservation.guestName}}<br>
+                Email: {{reservation.guestEmail}}<br>
+                Room: {{reservation.roomNumber}}<br>
+                Check-in: {{reservation.checkinDate | date:'shortDate'}}<br>
+                Check-out: {{reservation.checkoutDate | date:'shortDate'}}<br>
+        <div class="buttondiv">
+            <button class="delete" (click)="deleteReservation(reservation._id)">Delete</button>
+            <button class="edit" [routerLink]="['/edit', reservation._id]">Edit</button>
+        </div>
+            </li>
+        </ul>
+    </div>
+
+
+<ng-template #noReservation>
+    <p>No Reservation available.</p>
+</ng-template>
+</div>
