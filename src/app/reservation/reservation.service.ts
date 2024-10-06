@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Reservation } from '../models/reservation';
 import {HttpClient} from '@angular/common/http'
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environments';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ import { Observable } from 'rxjs';
 
 export class ReservationService{
 
-  private apiUrl = "http://52.64.17.240:3000/reservation"
+  private apiUrl = `${environment.apiUrl}/reservation`
     constructor(private http: HttpClient){}
 
     getReservations():Observable<Reservation[]>{
